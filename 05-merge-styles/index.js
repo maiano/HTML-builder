@@ -6,6 +6,8 @@ const pathOut = path.join(__dirname, 'project-dist', 'bundle.css');
 
 async function mergeStyles() {
   try {
+    await fs.writeFile(pathOut, '', 'utf8');
+
     const styles = await fs.readdir(pathIn, { withFileTypes: true });
     const stylePromises = styles.map(async (file) => {
       if (file.isFile() && path.extname(file.name) === '.css') {
