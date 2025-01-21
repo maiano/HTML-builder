@@ -13,3 +13,5 @@ function exit() {
   process.stdout.write('bye...\n');
   process.exit();
 }
+
+process.on('SIGINT', exit);
